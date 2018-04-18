@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Star:</strong>
+  <%= @star2mineral.star_id %>
+</p>
+
+<p>
+  <strong>Mineral:</strong>
+  <%= @star2mineral.mineral_id %>
+</p>
+
+<p>
+  <strong>Loc:</strong>
+  <%= @star2mineral.loc_id %>
+</p>
+
+<p>
+  <strong>Max qty:</strong>
+  <%= @star2mineral.max_qty %>
+</p>
+
+<%= link_to 'Edit', edit_star2mineral_path(@star2mineral) %> |
+<%= link_to 'Back', star2minerals_path %>

@@ -1,0 +1,26 @@
+
+
+rails g scaffold player name:string 
+rails g scaffold mineral name:string 
+rails g scaffold star name:string r:integer
+rails g scaffold loc x:integer  y:integer
+rails g scaffold  star2mineral  star_id:integer  mineral_id:integer loc_id:integer max_qty:integer
+
+
+
+rails g scaffold  build player_id:integer name:string max_unit_per_sec:integer for_mineral_id:integer  // need build near mineral_id for produce
+rails g scaffold  cost obj_model:string obj_id:integer mineral_id:integer qty:integer
+//to build
+
+rails g scaffold  build player_id:integer name:string max_unit_per_sec:integer for_mineral_id:integer  // need build near mineral_id for produce
+
+
+rails g scaffold  cost obj_model:string obj_id:integer mineral_id:integer qty:integer
+//to build
+
+
+
+
+
+
+

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
+import api_fetch from './api'
 
 class App extends Component {
   render() {
 
-	  fetch('http://localhost:3001')
-		  .then((response) => response.text())
+	  api_fetch('/minerals.json')
+		  .then((response) => response.json())
 		  .then((rs) => {
 			  console.log(rs);
 		  })
