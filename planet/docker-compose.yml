@@ -1,0 +1,39 @@
+version: '3'
+services:
+    planet-react:
+        container_name: planet-react
+        build:
+            context: .
+            dockerfile: docker_react
+        command: npm start
+        links:
+            - planet-api
+        working_dir: /react_app_dir/react_dir
+        volumes:
+            - ./frontend:/react_app_dir/react_dir
+        ports:
+            - '3000:3000'
+        networks:
+            - db
+    planet-api:
+        container_name: planet-api
+        build:
+            context: .
+            dockerfile: docker_rails
+        command: rails s -b 0.0.0.0 -e development -p 3000
+        environment:
+            - DOCKERIZED=true
+        working_dir: /rails_app_dir/dir
+        volumes:
+            - ./api:/rails_app_dir/dir
+        ports:
+            - '3001:3000'
+        networks:
+            - db
+
+networks:
+    db:
+        driver: bridge
+
+
+
