@@ -6,6 +6,8 @@ services:
             context: .
             dockerfile: docker_react
         command: npm start
+        #stdin_open: true
+        #tty: true
         links:
             - planet-api
         working_dir: /react_app_dir/react_dir

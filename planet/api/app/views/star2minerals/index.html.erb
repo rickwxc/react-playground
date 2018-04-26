@@ -16,9 +16,13 @@
   <tbody>
     <% @star2minerals.each do |star2mineral| %>
       <tr>
-        <td><%= star2mineral.star_id %></td>
-        <td><%= star2mineral.mineral_id %></td>
-        <td><%= star2mineral.loc_id %></td>
+        <td><%= star2mineral.star.name %></td>
+        <td><%= star2mineral.mineral.name %></td>
+		<td>
+			<%= star2mineral.loc.x %>
+			,
+			<%= star2mineral.loc.y %>
+		</td>
         <td><%= star2mineral.max_qty %></td>
         <td><%= link_to 'Show', star2mineral %></td>
         <td><%= link_to 'Edit', edit_star2mineral_path(star2mineral) %></td>

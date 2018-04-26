@@ -1,26 +1,48 @@
 import React, { Component } from 'react';
+import { Grid, Header, Segment } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css';
+
+
 
 import api_fetch from './api'
+import Minerals from './minerals'
 
 class App extends Component {
-  render() {
+	constructor(props) {
+		super(props);
+		this.state = {data: false};
+	}
+	componentDidMount() {
+		api_fetch('/star2minerals.json').then((response) => response.json())
+			.then((rs) => {
+				this.setState({data: rs});
+			})
+	}
 
-	  api_fetch('/minerals.json')
-		  .then((response) => response.json())
-		  .then((rs) => {
-			  console.log(rs);
-		  })
+	render() {
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-        </p>
-      </div>
-    );
-  }
+		if (this.state.data) {
+			return (
+				<Grid>
+					<Grid.Row columns={3}>
+						<Grid.Column>
+							<Minerals data={this.state.data} />
+						</Grid.Column>
+						<Grid.Column>
+						</Grid.Column>
+						<Grid.Column>
+						</Grid.Column>
+					</Grid.Row>
+				</Grid>
+			)
+		}
+
+		return (
+			<Header as='h3' textAlign='center'>
+			Loading ....
+			</Header>
+		);
+	}
 }
 
 export default App;

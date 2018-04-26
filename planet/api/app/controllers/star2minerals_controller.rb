@@ -4,7 +4,7 @@ class Star2mineralsController < ApplicationController
   # GET /star2minerals
   # GET /star2minerals.json
   def index
-    @star2minerals = Star2mineral.all
+	  @star2minerals = Star2mineral.joins("inner join locs on loc_id = locs.id").where(:star_id => params[:star_id].to_i ).all.order('y asc')
   end
 
   # GET /star2minerals/1

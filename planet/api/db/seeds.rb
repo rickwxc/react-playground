@@ -11,7 +11,7 @@ require './db/scripts/loc_seeder'
 
 Player.create([
   {name: "Rick"},
-  {name: "Computer1"},
+  {name: "Taoli"},
 ])
 
 minerals = Mineral.create([
@@ -30,7 +30,6 @@ minerals = Mineral.create([
 
 stars = Star.create([
   {name: "Mars", width:100, length: 800}
-
 ])
 
 
